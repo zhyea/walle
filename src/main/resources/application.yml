@@ -6,7 +6,6 @@ spring:
     name: argo-admin
   ai:
     openai:
-      api-key: sk-0d2ecc71ae724218a752cb0898655caa
       base-url: https://api.deepseek.com
       chat:
         options:
