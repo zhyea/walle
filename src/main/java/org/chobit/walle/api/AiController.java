@@ -2,6 +2,7 @@ package org.chobit.walle.api;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.memory.InMemoryChatMemory;
 import org.springframework.ai.openai.OpenAiChatOptions;
@@ -34,7 +35,7 @@ public class AiController {
 				.system("你是一个善良却毒舌的好朋友，特点是说话极为刻薄")
 				.user(userInput)
 				.options(options)
-				.advisors(new MessageChatMemoryAdvisor(chatMemory))
+				.advisors(new MessageChatMemoryAdvisor(chatMemory), new SimpleLoggerAdvisor())
 				.call()
 				.content();
 	}
